@@ -1,0 +1,13 @@
+#do instalacji requirements
+
+pip install -r ./requirements.txt
+
+#do podniesienia serwera
+
+python manage.py runserver 
+
+#po dodaniu rzeczy do bazy danych, lub zmianie czegos w bazie danych
+
+python manage.py makemigrations
+
+python manage.py runserver

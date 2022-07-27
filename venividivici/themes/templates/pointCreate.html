@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Point Create{% endblock %}
+{% block blockTitle %}New Points{% endblock %}
+
+
+{% block content %}
+<form method="POST" action="">
+	{% csrf_token %}
+
+	          <div class="card">
+            <div class="card-body wizard-content">
+              <h2 class="card-title">Add points</h4>
+              <h6 class="card-subtitle"></h6>
+              <form id="example-form" action="{% url 'pointNew' %}" method="post" class="mt-5">
+                <div>
+                  
+                  {{form.user.label}}
+                  {{form.user}}
+                
+                  {{form.date.label}}
+                  {{form.date}}                  
+
+                  {{form.description.label}}
+                  {{form.description}}
+               
+                  {{form.category.label}}
+                  {{form.category}}
+                
+                  {{form.points.label}}
+                  {{form.points}}
+                  </div>
+                    <input type="submit" value="Dodaj">
+                  <!--   <button><a href="/points/list" class="btn btn-info" >Dodaj</a></button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+	  {{form.errors}}
+    {% for message in messages %}
+        <p id="message">{{message}}</p>
+    {% endfor %}
+</form>
+{% endblock %}

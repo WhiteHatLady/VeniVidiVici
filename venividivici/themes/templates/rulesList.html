@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Rules List{% endblock %}
+{% block blockTitle %}Zasady gry{% endblock %}
+
+
+{% block content %}
+
+{% for rule in rules %}
+	{% if user.is_superuser or user.is_authenticated %}
+	<div class="card-body">
+		{{rule.title | safe}} <br>
+		{{rule.text | safe}}
+	</div>	
+	{% endif %}
+{% endfor %}
+
+
+
+
+{% endblock %}
